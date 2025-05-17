@@ -1,5 +1,6 @@
 const Login = () => {
   const backendURL = import.meta.env.VITE_API_BASE_URL;
+  console.log("Backend URL is:", backendURL);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
