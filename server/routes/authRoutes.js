@@ -2,7 +2,7 @@ import express from "express";
 import passport from "passport";
 import jwt from "jsonwebtoken";
 
-const router = express.Router();
+const authRouter = express.Router();
 
 // Utility: Generate JWT and redirect
 const generateTokenAndRedirect = (req, res) => {
@@ -16,36 +16,36 @@ const generateTokenAndRedirect = (req, res) => {
 };
 
 // ✅ Google
-router.get(
+authRouter.get(
   "/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
-router.get(
+authRouter.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   generateTokenAndRedirect
 );
 
 // ✅ Facebook
-router.get(
+authRouter.get(
   "/facebook",
   passport.authenticate("facebook", { scope: ["email"] })
 );
-router.get(
+authRouter.get(
   "/facebook/callback",
   passport.authenticate("facebook", { failureRedirect: "/" }),
   generateTokenAndRedirect
 );
 
 // ✅ GitHub
-router.get(
+authRouter.get(
   "/github",
   passport.authenticate("github", { scope: ["user:email"] })
 );
-router.get(
+authRouter.get(
   "/github/callback",
   passport.authenticate("github", { failureRedirect: "/" }),
   generateTokenAndRedirect
 );
 
-export default router;
+export default authRouter;

@@ -1,7 +1,7 @@
 import express from "express";
 import connectDB from "./db.js";
 import dotenv from "dotenv";
-import authRoutes from "./routes/authRoutes.js";
+import authRouter from "./routes/authRoutes.js";
 import session from "express-session";
 import passport from "passport";
 import configurePassport from "./config/passport.js";
@@ -47,7 +47,7 @@ app.use(passport.session());
 // ✅ Configure strategies BEFORE routes
 configurePassport(passport);
 
-app.use("/auth", authRoutes);
+app.use("/auth", authRouter);
 app.use("/api", searchRouter);
 
 app.listen(PORT, () => {
