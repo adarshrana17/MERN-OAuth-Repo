@@ -3,10 +3,11 @@ import axios from "axios";
 
 const TopSearches = ({ onSearch }) => {
   const [topTerms, setTopTerms] = useState([]);
+  const backendURL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/top-searches")
+      .get(`${backendURL}/api/top-searches`)
       .then((res) => setTopTerms(res.data))
       .catch(() => setTopTerms([]));
   }, []);

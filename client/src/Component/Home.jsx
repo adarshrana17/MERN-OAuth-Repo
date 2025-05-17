@@ -15,6 +15,8 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
+  const backendURL = import.meta.env.VITE_API_BASE_URL;
+
   // ✅ Load logged-in user
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -48,7 +50,7 @@ const Home = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/search",
+        `${backendURL}/api/search`,
         { term: termToSearch },
         {
           headers: { Authorization: `Bearer ${token}` },

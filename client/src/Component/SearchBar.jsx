@@ -4,6 +4,7 @@ import axios from "axios";
 const SearchBar = ({ onResults }) => {
   const [user, setUser] = useState(null);
   const [term, setTerm] = useState("");
+  const backendURL = import.meta.env.VITE_API_BASE_URL;
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -11,7 +12,7 @@ const SearchBar = ({ onResults }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/search",
+        `${backendURL}/api/search`,
         { term },
         {
           headers: {

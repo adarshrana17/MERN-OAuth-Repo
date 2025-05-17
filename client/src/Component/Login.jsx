@@ -1,5 +1,5 @@
 const Login = () => {
-  const backendURL = "http://localhost:5000"; // change to your deployed URL later
+  const backendURL = import.meta.env.VITE_API_BASE_URL;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">

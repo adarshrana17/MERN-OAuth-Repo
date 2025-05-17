@@ -3,13 +3,14 @@ import axios from "axios";
 
 const SearchHistory = ({ onSearch }) => {
   const [history, setHistory] = useState([]);
+  const backendURL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
     if (token) {
       axios
-        .get("http://localhost:5000/api/history", {
+        .get(`${backendURL}/api/history`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -27,7 +28,7 @@ const SearchHistory = ({ onSearch }) => {
     if (!token) return;
 
     axios
-      .delete("http://localhost:5000/api/history", {
+      .delete(`${backendURL}/api/history`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
