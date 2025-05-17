@@ -37,7 +37,7 @@ MERN + OAuth Project/
 
 ### ⚙️ Environment Variables
 
-Create `.env` files in both `client/` and `server/` if needed, but especially in `server/`:
+Create `.env` files `server/`
 
 #### `.env` (server)
 
@@ -117,7 +117,7 @@ curl -X GET http://localhost:5000/api/test-protected \
 ## Visual Proof Checklist
 
 - [x] OAuth login (Google/GitHub/Facebook)
-      ![OAuth login](image.png)
+      ![alt text](image.png)
 
 - [x] Search with image grid & multi-select counter
       ![alt text](image-1.png)
