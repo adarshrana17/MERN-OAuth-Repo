@@ -10,7 +10,7 @@ export default function configurePassport(passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "/auth/google/callback",
+        callbackURL: `${process.env.SERVER_URL}/auth/google/callback`,
       },
       verifyOAuthUser("google")
     )
@@ -22,7 +22,7 @@ export default function configurePassport(passport) {
       {
         clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
-        callbackURL: "/auth/facebook/callback",
+        callbackURL: `${process.env.SERVER_URL}/auth/facebook/callback`,
         profileFields: ["id", "displayName", "emails", "photos"],
       },
       verifyOAuthUser("facebook")
@@ -35,7 +35,7 @@ export default function configurePassport(passport) {
       {
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: "/auth/github/callback",
+        callbackURL: `${process.env.SERVER_URL}/auth/github/callback`,
         scope: ["user:email"],
       },
       verifyOAuthUser("github")

@@ -17,7 +17,7 @@ const PORT = process.env.PORT;
 
 app.use(
   cors({
-    origin: "https://mern-oauth-repo.onrender.com",
+    origin: "https://mern-o-auth-repo.vercel.app",
     credentials: true,
   })
 );
@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 app.get("/api/test-protected", verifyToken, (req, res) => {
   res.json({ message: `Hello ${req.user.name}, you're authenticated.` });
 });
+app.set("trust proxy", 1);
 
 app.use(
   session({
