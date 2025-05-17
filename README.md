@@ -1,6 +1,9 @@
 # MERN + OAuth Project
 
 This project is a MERN stack application that allows users to log in via OAuth (Google, GitHub, Facebook), search for images using the Unsplash API, track their search history, and select multiple images with a dynamic counter.
+## 🔗 Live Demo
+
+[Click here to view the live app](https://mern-o-auth-repo.vercel.app/)
 
 ---
 
